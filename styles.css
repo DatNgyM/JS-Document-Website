@@ -6,6 +6,16 @@ body {
   font-family: 'Open Sans', Arial, sans-serif;
   line-height: 1.5;
 }
+/* Thanh tim kiem */
+#search-bar {
+    width: 90%;
+    padding: 8px;
+    margin: 10px auto;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
 
 #navbar {
   position: fixed;
@@ -16,6 +26,7 @@ body {
   height: 100%;
   border-right: solid;
   border-color: rgba(0, 22, 22, 0.4);
+  border-radius: 0px 15px 15px 0px; /* Bo góc bên phải */
 }
 
 header {
@@ -84,14 +95,42 @@ code {
   margin: 10px;
   border-radius: 5px;
 }
-
+@media only screen and (max-width: 768px) {
+    #navbar {
+      width: 100%;
+      height: auto;
+      position: relative;
+      border-right: none;
+      border-bottom: 2px solid #ccc;
+      border-radius: 0px;
+    }
+  
+    #main-doc {
+      margin-left: 0;
+      padding-top: 20px;
+    }
+  
+    #navbar ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+  
+    #navbar li {
+      display: inline-block;
+      margin: 5px;
+    }
+  }
+  
+/* oldold */
+/* 
 @media only screen and (max-width: 815px) {
-  /* For mobile phones: */
+  For mobile phones:
   #navbar ul {
     border: 1px solid;
     height: 207px;
-  }
-
+  } */
+/* 
   #navbar {
     background-color: white;
     position: absolute;
@@ -125,4 +164,4 @@ code {
     padding-right: 45px;
     min-width: 233px;
   }
-}
+} */
