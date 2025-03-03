@@ -15,7 +15,16 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
   }
-  
+/* Tạo hiệu ứng tô màu cho từ khóa được tìm kiếm */
+.highlight {
+    background-color: yellow; /* Màu nền vàng */
+    font-weight: bold;
+    color: red; /* Chữ đỏ */
+    padding: 2px;
+    border-radius: 3px;
+}
+
+
 
 #navbar {
   position: fixed;
