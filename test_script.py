@@ -2,21 +2,30 @@ import subprocess
 
 # Tạo nhánh mới
 def create_new_branch():
-    subprocess.run(['git', 'checkout', '-b', 'test-branch'], check=True)
-    print("Nhánh mới 'test-branch' đã được tạo và chuyển đến.")
+    try:
+        subprocess.run(['git', 'checkout', '-b', 'test-branch'], check=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+        print("Nhánh mới 'test-branch' đã được tạo và chuyển đến.")
+    except subprocess.CalledProcessError as e:
+        print(f"Error creating branch: {e.stderr.decode()}")
 
 # Thêm thay đổi và commit
 def commit_changes():
-    subprocess.run(['git', 'add', '.'], check=True)
-    subprocess.run(['git', 'commit', '-m', '"Thêm các thay đổi cho test case"'], check=True)
-    print("Thay đổi đã được commit.")
-
+    try:
+        subprocess.run(['git', 'add', '.'], check=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+        subprocess.run(['git', 'commit', '-m', 'Thêm các thay đổi cho test case'], check=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+        print("Thay đổi đã được commit.")
+    except subprocess.CalledProcessError as e:
+        print(f"Error committing changes: {e.stderr.decode()}")
+        
 # Đẩy nhánh lên GitHub
 def push_changes():
-    subprocess.run(['git', 'push', 'origin', 'test-branch'], check=True)
-    print("Nhánh 'test-branch' đã được đẩy lên GitHub.")
+    try:
+        subprocess.run(['git', 'push', 'origin', 'test-branch'], check=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+        print("Nhánh 'test-branch' đã được đẩy lên GitHub.")
+    except subprocess.CalledProcessError as e:
+        print(f"Error pushing changes: {e.stderr.decode()}")
 
-# Tạo pull request (PR)
-def create_pull_request():
-    subprocess.run(['gh', 'pr', 'create', '--base', 'main', '--head', 'test-branch', '--title', 'Test PR', '--body', 'Mô tả pull request'], check=True)
-    print("Pull Request đã được tạo.")
+# Các thao tác Git tự động hóa này
+create_new_branch()
+commit_changes()
+push_changes()
