@@ -1,3 +1,0 @@
-Đây là file mới thêm vào Git.
-Đây là phần sửa thêm vào file hiện tại đang test.
-Đây là phần sửa thêm vào file hiện tại đang test.
