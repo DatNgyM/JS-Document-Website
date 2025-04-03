@@ -13,7 +13,7 @@ def create_new_branch():
 def add_new_file():
     try:
         # Tạo một file mới và thêm nội dung vào với mã hóa UTF-8
-        with open("new_file.txt", "w", encoding='utf-8') as f:
+        with open("new_file2.txt", "w", encoding='utf-8') as f:
             f.write("Đây là file mới thêm vào Git.")  # Dữ liệu có chứa ký tự Unicode
         subprocess.run(['git', 'add', 'new_file.txt'], check=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
         print("File mới đã được thêm vào Git.")
@@ -25,8 +25,8 @@ def add_new_file():
 def modify_file():
     try:
         # Mở và sửa file hiện có với mã hóa UTF-8
-        with open("existing_file.txt", "a", encoding='utf-8') as f:
-            f.write("\nĐây là phần sửa thêm vào file hiện tại.")  # Dữ liệu có chứa ký tự Unicode
+        with open("new_file2.txt", "a", encoding='utf-8') as f:
+            f.write("\nĐây là phần sửa thêm vào file hiện tại đang test.")  # Dữ liệu có chứa ký tự Unicode
         subprocess.run(['git', 'add', 'existing_file.txt'], check=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
         print("File đã được sửa và thay đổi đã được thêm vào Git.")
     except subprocess.CalledProcessError as e:
@@ -37,7 +37,7 @@ def modify_file():
 def delete_file():
     try:
         # Xóa file khỏi repository
-        subprocess.run(['git', 'rm', 'new1_file.txt'], check=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+        subprocess.run(['git', 'rm', 'new_file11.txt'], check=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
         print("File đã được xóa khỏi Git.")
     except subprocess.CalledProcessError as e:
         print(f"Error deleting file: {e.stderr.decode()}")
